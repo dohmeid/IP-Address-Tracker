@@ -4,36 +4,76 @@
 
 /*************************** custom css style ********************************/
 :root {
-    /*the website's color palette */
-    --dark-grey: hsl(0, 0%, 17%);
-    --grey: hsl(0, 0%, 59%);
+  /*the website's color palette */
+  --dark-grey: hsl(0, 0%, 17%);
+  --grey: hsl(0, 0%, 59%);
 
-    /*font combination*/
-    --main-font: "Rubik", sans-serif;
+  /*font combination*/
+  --main-font: "Rubik", sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: var(--main-font);
-    background-color: #f8f9fa;
-    color: var(--dark-grey);
+  font-family: var(--main-font);
+  text-align: center;
+}
+
+header {
+  height: 14rem;
+  background-image: url(../images/pattern-bg-desktop.png);
+  text-transform: capitalize;
+  padding-top: 2.2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  & h1 {
+    color: white;
   }
+
+  & form {
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 55%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    
+
+    input {
+      width: 85%;
+      border-top-left-radius: inherit;
+      border-bottom-left-radius: inherit;
+      border-color: transparent;
+      outline: none;
+      padding-left: 1rem;
+      color: var(--grey);
+    }
+
+    button {
+      width: 16%;
+      border-top-right-radius: inherit;
+      border-bottom-right-radius: inherit;
+      border-color: transparent;
+      background-color: var(--dark-grey);
+    }
+  }
+}
 
 
 
 footer {
-    font-size: 11px;
-    text-align: center;
+  font-size: 11px;
+  text-align: center;
 
-  a {
+  & a {
     color: hsl(228, 45%, 44%);
   }
 }
-
