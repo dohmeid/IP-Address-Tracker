@@ -21,11 +21,16 @@
 body {
   font-family: var(--main-font);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header {
-  height: 14rem;
+  width: 100%;
+  height: 16rem;
   background-image: url(../images/pattern-bg-desktop.png);
+  background-size: cover;
   text-transform: capitalize;
   padding-top: 2.2rem;
 
@@ -41,11 +46,10 @@ header {
   & form {
     background-color: white;
     border-radius: 0.5rem;
-    width: 55%;
+    width: 35rem;
     height: 3rem;
     display: flex;
     justify-content: center;
-    
 
     input {
       width: 85%;
@@ -68,10 +72,53 @@ header {
 }
 
 
+.resultDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65rem;
+  background-color: rgb(248, 248, 248);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  top: -3.5rem;
+
+  .side {
+    border-left: 1px solid var(--grey);
+    padding-left: 1rem;
+    height: 5rem;
+    width: 15rem;
+
+    p {
+      color: var(--grey);
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      padding-top: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+
+  }
+
+  .one {
+    border: none;
+  }
+
+}
+
 
 footer {
   font-size: 11px;
   text-align: center;
+  margin-top: 20rem;
 
   & a {
     color: hsl(228, 45%, 44%);
