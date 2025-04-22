@@ -104,21 +104,21 @@ header {
       padding-top: 0.5rem;
       font-size: 1.5rem;
     }
-
-
   }
-
   .one {
     border: none;
   }
-
 }
 
+#map { 
+  background-color: brown;
+  height: 500px; 
+  width: 100%;
+}
 
 footer {
   font-size: 11px;
   text-align: center;
-  margin-top: 20rem;
 
   & a {
     color: hsl(228, 45%, 44%);
