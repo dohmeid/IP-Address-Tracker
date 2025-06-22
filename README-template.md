@@ -1,3 +1,9 @@
+/* step1: 
+   get the initial ip address of the website visitor using ipify API
+   we'll cache the ip, so if the same user visits the website again no need to send another request to the api (reduce number of api calls)
+   we're getting the ip address in client side using an external api
+*/
+
 # Frontend Mentor - IP address tracker solution
 
 This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
