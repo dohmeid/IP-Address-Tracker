@@ -17,7 +17,7 @@ const ispP = document.getElementById("isp");
 
 searchButton.addEventListener('click', onSearchButtonClick);
 
-getInitialIP();
+//getInitialIP();
 
 async function onSearchButtonClick() {
     //get the search ip and validate it
