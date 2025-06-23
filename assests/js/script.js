@@ -14,8 +14,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 updateMap(40.6944, -73.9918, "NY", "Brooklyn")
 
 //constants
-const API_KEY = "at_rVyIXaUDag6rJk1fMVmnwNSzOy6ju";
-const IP_REGEX = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/;
+const IP_REGEX = "/^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/";
 
 searchButton.addEventListener('click', handleSearchButtonClick);
 getInitialIP(); // get user's initial IP address on load
