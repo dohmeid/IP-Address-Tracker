@@ -73,6 +73,11 @@ header {
         letter-spacing: 0rem;
       }
 
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        background-color: rgba(237, 237, 237, 0.93);
+      }
+
     }
 
     button {
@@ -80,6 +85,15 @@ header {
       background-color: var(--dark-grey);
       border: none;
       cursor: pointer;
+
+      &:hover {
+        background-color: var(--grey);
+        transition: all .3s;
+      }
+
+      &:active {
+        opacity: .5;
+      }
     }
   }
 }
