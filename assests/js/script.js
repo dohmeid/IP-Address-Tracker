@@ -1,4 +1,5 @@
-
+//***************************************CONSTANTS+Initialization*****************************************8*/
+// DOM Elements
 const searchBar = document.getElementById("query");
 const searchButton = document.getElementById("searchBtn");
 const ipAddressP = document.getElementById("ipAddress");
@@ -6,73 +7,79 @@ const locationP = document.getElementById("location");
 const timezoneP = document.getElementById("timezone");
 const ispP = document.getElementById("isp");
 
-const map = L.map('map');
+// Leaflet Map Initialization
+const map = L.map('map').setView([0, 0], 2);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     { maxZoom: 20, attribution: '© <a href ="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' }).addTo(map);
+updateMap(40.6944, -73.9918, "NY", "Brooklyn")
+
+//constants
+const API_KEY = "at_rVyIXaUDag6rJk1fMVmnwNSzOy6ju";
+const IP_REGEX = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/;
+
+searchButton.addEventListener('click', handleSearchButtonClick);
+getInitialIP(); // get user's initial IP address on load
 
 
-searchButton.addEventListener('click', onSearchButtonClick);
-getInitialIP();
-
-//gets the initial ip address of the website visitor
+//***************************************FUNCTIONS*****************************************8*/
 async function getInitialIP() {
-    const request = await fetch('https://api.ipify.org?format=json');
-    const response = await request.json();
-    if (request.ok) {
-        // console.log(`your ip adderss is ${response.ip}`);
-        findIPDetails(response.ip);
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        if (!response.ok)
+            throw new Error(`Status ${response.status}`);
+        await fetchIPDetails(data.ip);
     }
-    else {
-        console.error('error in getInitialIP, error status=', request.status);
+    catch (error) {
+        console.error("Failed to get initial IP:", error.message);
     }
 }
 
-
-//gets the entered ip address and validates it
-async function onSearchButtonClick() {
-
+async function handleSearchButtonClick(e) {
+    e.preventDefault();
     const searchIP = searchBar.value.trim();
-    const ipRegex = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/;
 
-    if (searchIP.length <= 1) {
-        alert("wrong ip address");
+    if (!searchIP) {
+        alert("Please enter an IP address.");
+        return;
     }
-    else if (!ipRegex.test(searchIP)) {
-        alert("wrong ip address format, must follow this pattern x.x.x.x, and each number x between 0 and 255 only");
+
+    if (!IP_REGEX.test(searchIP)) {
+        alert("Invalid IP format. It must be like x.x.x.x where x is 0-255.");
+        return;
     }
-    else {
-        //send the ip to the api to get the details of it
-        findIPDetails(searchIP);
+
+    await fetchIPDetails(searchIP);
+}
+
+async function fetchIPDetails(ip) {
+    try {
+        const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ip}`);
+        const data = await response.json();
+        console.log('ggggggggggg');
+        if (!response.ok)
+            throw new Error(`Status ${response.status}`);
+        updateUI(data);
+    }
+    catch (error) {
+        console.error(`Failed to fetch IP details for ${ip}:`, error);
+        alert("Failed to retrieve IP details. Please try again.");
     }
 }
 
-//passes the ip to the api and returns the details of the location for the api
-async function findIPDetails(ip) {
-    const key = "at_rVyIXaUDag6rJk1fMVmnwNSzOy6ju";
-    const request = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress=${ip}`);
-    const response = await request.json();
-    if (request.ok) {
-        updateUI(response);
-    }
-    else {
-        console.error('Error in findIPDetails, error status=', request.status);
-    }
-}
-
-//destructures the nested ip properties and updates the ui
 function updateUI(IPDetails) {
+    //destructure the nested ip properties
     const { ip, location, isp } = IPDetails;
     const { country, region, city, lat, lng, postalCode, timezone } = location;
 
     ipAddressP.textContent = ip;
     locationP.textContent = `${country}, ${region}, ${city}, ${postalCode}`;
-    timezoneP.textContent = 'UTC' + timezone;
+    timezoneP.textContent = `UTC ${timezone}`;
     ispP.textContent = isp;
 
     updateMap(lat, lng, country, region);
 }
 
-//updates the map with the specified location 
 function updateMap(lat, lng, country, region) {
     map.setView([lat, lng], 13);
     const myMarker = L.marker([lat, lng]).addTo(map);
