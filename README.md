@@ -19,7 +19,6 @@ This is a solution to the IP Address Tracker challenge on Frontend Mentor. The g
 - JavaScript
 - LeafletJS – for interactive maps
 - IP Geolocation API by IPify – to fetch IP address data
-- Mobile-first workflow
 
 
 ## 📱 Features
