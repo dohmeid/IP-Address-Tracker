@@ -2,8 +2,8 @@
 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e86c9a29-8661-4585-8760-2d8b9a5eb92d" height="380" style="object-fit: cover;" />
-  <img src="https://github.com/user-attachments/assets/b5ed627f-53da-4aab-849e-b08be8ea0ba1" height="380" style="object-fit: cover;" />
+  <img src="https://github.com/user-attachments/assets/e86c9a29-8661-4585-8760-2d8b9a5eb92d" height="300" style="object-fit: cover;" />
+  <img src="https://github.com/user-attachments/assets/b5ed627f-53da-4aab-849e-b08be8ea0ba1" height="300" style="object-fit: cover;" />
 </p>
 
 ## 🚀 Overview
