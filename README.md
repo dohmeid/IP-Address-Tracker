@@ -6,6 +6,7 @@
   <img src="https://github.com/user-attachments/assets/b5ed627f-53da-4aab-849e-b08be8ea0ba1" height="300" style="object-fit: cover;" />
 </p>
 
+
 ## 🚀 Overview
 This is a solution to the IP Address Tracker challenge on Frontend Mentor. The goal was to build a fully responsive IP Address Tracker app that allows users to:
 - See their own IP address and location on map upon page load.
@@ -35,8 +36,6 @@ To run the project locally:
 2. Replace YOUR_API_KEY in the JS file with your actual API key
 3. Open index.html in your browser
 4. Search any IP address or domain and view location
-
-
 
 
 <p align="center">HAPPY CODING!</p>

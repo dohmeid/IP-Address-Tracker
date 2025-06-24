@@ -1,0 +1,200 @@
+/*************************** Import Google Fonts ***************************/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+
+/*************************** Root Variables ***************************/
+:root {
+  /*the website's color palette */
+  --dark-grey: hsl(0, 0%, 17%);
+  --grey: hsl(0, 0%, 65%);
+  --main-font: "Rubik", system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--main-font);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+  color: var(--dark-grey);
+}
+
+header {
+  width: 100%;
+  height: 22rem;
+  background-image: url(../images/pattern-bg-desktop.png);
+  background-size: cover;
+  background-position: center;
+  text-transform: capitalize;
+  padding-top: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  h1 {
+    color: #ffffff;
+    font-size: 1.8rem;
+  }
+
+  form {
+    background-color: #ffffff;
+    border-radius: 0.8rem;
+    width: 100%;
+    max-width: 35rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    input[type="search"] {
+      all: unset;
+      width: 85%;
+      padding-left: 1rem;
+      color: var(--grey);
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: var(--main-font);
+      text-align: left;
+      letter-spacing: 0.1rem;
+
+      &::placeholder {
+        color: var(--grey);
+        font-weight: normal;
+        letter-spacing: 0rem;
+      }
+
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        background-color: rgba(237, 237, 237, 0.93);
+      }
+
+    }
+
+    button {
+      width: 15%;
+      background-color: var(--dark-grey);
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--grey);
+        transition: all .3s;
+      }
+
+      &:active {
+        opacity: .5;
+      }
+    }
+  }
+}
+
+
+.resultDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 65rem;
+  height: 8rem;
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 0.8rem;
+  text-align: left;
+  position: fixed;
+  top: 12rem;
+  z-index: 1;
+  gap: 1.5rem;
+
+  .side {
+    border-right: 1px solid var(--grey);
+    height: 4rem;
+    width: 15rem;
+    padding-left: 1rem;
+
+
+    p {
+      color: var(--grey);
+      font-size: 0.7rem;
+      font-weight: bolder;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      padding-top: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--dark-grey);
+    }
+  }
+
+  .last {
+    border-right: none;
+  }
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+footer {
+  font-size: 0.625rem;
+  text-align: center;
+  position: fixed;
+  bottom: 1rem;
+  background-color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  opacity: 0.7;
+  z-index: 10;
+}
+
+
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+
+
+  header {
+    height: 50%;
+    gap: 1rem;
+
+    form {
+      width: 80%;
+    }
+  }
+
+  .resultDiv {
+    flex-direction: column;
+    width: 80%;
+    height: 15rem;
+    padding: 0rem;
+    text-align: center;
+    position: fixed;
+    top: 10rem;
+    gap: 0rem;
+
+    .side {
+      border-right: none;
+      height: fit-content;
+      width: 100%;
+      padding-left: 0rem;
+    }
+  }
+
+
+}
